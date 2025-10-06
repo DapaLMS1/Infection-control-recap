@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infection Control Recap for Dental Assistants</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2;
+            color: #333;
+        }
+
+        /* Brand Colors */
+        .brand-deep-purple { background-color: #532A8C; }
+        .text-brand-deep-purple { color: #532A8C; }
+        .border-brand-deep-purple { border-color: #532A8C; }
+        .bg-brand-medium-purple { background-color: #9D8ABB; }
+        .bg-brand-light-purple { background-color: #C3ACE8; }
+        .bg-brand-muted-green { background-color: #96BF78; }
+        .brand-off-white { background-color: #F2F2F2; }
+        .text-brand-bright-green { color: #7ABF49; }
+
+        .tab-button {
+            background-color: #C3ACE8;
+            color: #1a1a1a;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 1rem; /* Adjusted for longer text */
+            font-weight: 500;
+            text-align: left;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .tab-button:hover {
+            background-color: #9D8ABB;
+        }
+
+        .tab-button.active {
+            background-color: #532A8C;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: white;
+            border-left: 4px solid #532A8C;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Custom list style from original file */
+        .recap-list li::before {
+            content: '✓';
+            color: #7ABF49; /* brand-bright-green */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 md:p-8">
+
+    <div class="w-full max-w-5xl brand-off-white rounded-xl shadow-lg overflow-hidden border-2 border-[#C3ACE8]">
+        
+        <!-- Header -->
+        <header class="brand-deep-purple text-white p-6 rounded-t-lg">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-2">Infection Control Recap</h1>
+            <p class="text-center text-lg opacity-90">Key Principles for Dental Assistants</p>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="flex flex-col md:flex-row flex-grow">
+
+            <!-- Sidebar Tabs -->
+            <nav class="w-full md:w-1/3 p-4 md:p-6 bg-brand-muted-green md:rounded-bl-xl space-y-3">
+                <button class="tab-button active" data-tab="risks">
+                    <svg class="w-8 h-8 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    Infection Risks & Hazards
+                </button>
+                <button class="tab-button" data-tab="controls">
+                    <svg class="w-8 h-8 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Control Measures
+                </button>
+                <button class="tab-button" data-tab="precautions">
+                     <svg class="w-8 h-8 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Transmission-Based Precautions
+                </button>
+                <button class="tab-button" data-tab="breaches">
+                    <svg class="w-8 h-8 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                    Breaches in Infection Control
+                </button>
+                <button class="tab-button" data-tab="assessment">
+                    <svg class="w-8 h-8 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    Risk Assessment & Action
+                </button>
+            </nav>
+
+            <!-- Tab Content Area -->
+            <main class="w-full md:w-2/3 p-4 md:p-6 brand-off-white">
+                <div id="risks" class="tab-content active p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">1. Infection Risks & Hazards</h2>
+                    <ul class="recap-list list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Sharps Injuries:</strong> From needles, scalers, burs, and other instruments.</li>
+                        <li><strong>Aerosols & Splatter:</strong> Generated by high-speed handpieces, ultrasonic scalers, and air-water syringes.</li>
+                        <li><strong>Contaminated Surfaces:</strong> Contact with countertops, light handles, dental chairs, and equipment.</li>
+                        <li><strong>Direct Contact:</strong> Exposure to blood, saliva, and other potentially infectious materials (OPIM).</li>
+                    </ul>
+                </div>
+
+                <div id="controls" class="tab-content p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">2. Control Measures</h2>
+                    <ul class="recap-list list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Hand Hygiene:</strong> The single most important measure.</li>
+                        <li><strong>Personal Protective Equipment (PPE):</strong> Correct use of gloves, masks, eyewear, and gowns.</li>
+                        <li><strong>Instrument Sterilisation:</strong> Following cleaning, disinfecting, and sterilisation protocols.</li>
+                        <li><strong>Surface Asepsis:</strong> Using barriers and disinfectants on clinical contact surfaces.</li>
+                        <li><strong>Waste Management:</strong> Correctly disposing of sharps and contaminated waste.</li>
+                    </ul>
+                </div>
+
+                <div id="precautions" class="tab-content p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">3. Transmission-Based Precautions</h2>
+                    <p class="text-gray-700 mb-3 text-lg">Used <strong>in addition to</strong> Standard Precautions for patients with known or suspected infections.</p>
+                    <ul class="recap-list list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Contact Precautions:</strong> Requires gloves and a gown.</li>
+                        <li><strong>Droplet Precautions:</strong> Requires a surgical mask.</li>
+                        <li><strong>Airborne Precautions:</strong> Requires a P2/N95 respirator.</li>
+                        <li><strong>Enhanced Cleaning:</strong> Increased frequency and thoroughness of cleaning.</li>
+                    </ul>
+                </div>
+
+                <div id="breaches" class="tab-content p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">4. Breaches in Infection Control</h2>
+                    <p class="text-gray-700 mb-3 text-lg">A breach is any failure in protocol. Your response must be immediate.</p>
+                    <ul class="recap-list list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Identify the Breach:</strong> Recognise events like a sharps injury, steriliser failure, or a splash.</li>
+                        <li><strong>Respond Safely:</strong> Perform first aid and remove yourself from the hazardous situation.</li>
+                        <li><strong>Communicate Clearly:</strong> Report the incident to your supervisor immediately.</li>
+                    </ul>
+                </div>
+
+                <div id="assessment" class="tab-content p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">5. Risk Assessment & Immediate Action</h2>
+                    <p class="text-gray-700 mb-3 text-lg">Following a breach, you must assess the level of risk to determine the next steps.</p>
+                    <ul class="recap-list list-inside space-y-2 text-gray-700 text-lg">
+                        <li><strong>Assess the Risk:</strong> Consider patient history, fluid type, and exposure severity.</li>
+                        <li><strong>Take Immediate Action:</strong> Follow your workplace's specific post-exposure protocol.</li>
+                        <li><strong>Document Everything:</strong> Fill out an incident report form accurately and promptly.</li>
+                        <li><strong>Seek Medical Advice:</strong> Your employer should guide you on seeking medical evaluation.</li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            const showTab = (tabId) => {
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            };
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+                    showTab(tabId);
+                });
+            });
+
+            // Set default tab on page load
+            showTab('risks'); 
+        });
+    </script>
+</body>
+</html>
+
+
+
